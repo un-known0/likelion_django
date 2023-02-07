@@ -6,3 +6,8 @@ def index(request):
     # todos = Todo.objects.all().filter(todo__contains='첫번째')
     todos = Todo.objects.all().order_by('-pk')
     return render(request,'todo_app/index.html', {'todos':todos,})
+
+def Todos(request):
+        # todos = Todo.objects.all().filter(todo__contains='첫번째')
+    todos = Todo.objects.all().order_by('-pk')
+    return render(request,'todo_app/todos.html', {'todos':todos,})
