@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin #로그인 조건을 만족해야 다음으로 통과
 from .models import Todo
 
@@ -20,4 +20,9 @@ class TodoCreate(LoginRequiredMixin, CreateView):
     model = Todo #CreateView에서 '모델명_form'이라는 이름의 html을 알아서 찾음 -> templates/todo_app 안에서 알아서 찾음(이래서 폴더 안에 넣은거임)
     fields = ['todo','description','important']
     
+
+class TodoUpdate(UpdateView):
+    model = Todo #CreateView에서 '모델명_form'이라는 이름의 html을 알아서 찾음 -> templates/todo_app 안에서 알아서 찾음(이래서 폴더 안에 넣은거임)
+    fields = ['todo','description','important']
     
+    template_name = 'todo_app/todo_update_form.html'
